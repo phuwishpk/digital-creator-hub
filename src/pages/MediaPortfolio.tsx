@@ -1,20 +1,24 @@
-import { Film, Video, Tv, Scissors, Wand2, Smartphone, Monitor, Radio } from "lucide-react";
+import { Film, Video, Radio } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MediaImageSlider from "@/components/cards/MediaImageSlider";
-import SkillBadge from "@/components/cards/SkillBadge";
 import media1 from "@/assets/media-1.jpg";
 import media2 from "@/assets/media-2.jpg";
 import media3 from "@/assets/media-3.jpg";
 import media4 from "@/assets/media-4.jpg";
+import toolVmix from "@/assets/tool-vmix.jpg";
+import toolObs from "@/assets/tool-obs.jpg";
+import toolPremiere from "@/assets/tool-premiere.jpg";
+import toolAfterEffects from "@/assets/tool-aftereffects.jpg";
+import toolCapcut from "@/assets/tool-capcut.jpg";
 
 const MediaPortfolio = () => {
   const mediaSkills = [
-    { icon: Tv, name: "vMix" },
-    { icon: Monitor, name: "OBS Studio" },
-    { icon: Scissors, name: "Premiere Pro" },
-    { icon: Wand2, name: "After Effects" },
-    { icon: Smartphone, name: "CapCut" },
+    { image: toolVmix, name: "vMix" },
+    { image: toolObs, name: "OBS Studio" },
+    { image: toolPremiere, name: "Premiere Pro" },
+    { image: toolAfterEffects, name: "After Effects" },
+    { image: toolCapcut, name: "CapCut" },
   ];
 
   const mediaWorks = [
@@ -98,11 +102,23 @@ const MediaPortfolio = () => {
       {/* Skills Section */}
       <section className="py-16 bg-card/50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto space-y-6">
+          <div className="max-w-4xl mx-auto space-y-8">
             <h2 className="text-2xl font-bold text-foreground text-center">Production Tools</h2>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-6">
               {mediaSkills.map((skill) => (
-                <SkillBadge key={skill.name} icon={skill.icon} name={skill.name} variant="secondary" />
+                <div 
+                  key={skill.name} 
+                  className="group flex flex-col items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-secondary/50 transition-all duration-300"
+                >
+                  <div className="w-16 h-16 rounded-lg overflow-hidden group-hover:scale-110 transition-transform duration-300">
+                    <img 
+                      src={skill.image} 
+                      alt={skill.name} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="text-sm font-medium text-foreground">{skill.name}</span>
+                </div>
               ))}
             </div>
           </div>
