@@ -33,7 +33,7 @@ const ActivityPortfolio = () => {
 
   const activities = [
     {
-      image: activity1,
+      images: [activity1, activity2],
       title: "Coding Hackathon 2024",
       description: "Participated in a 48-hour hackathon developing innovative solutions for smart city challenges.",
       date: "2024",
@@ -41,7 +41,7 @@ const ActivityPortfolio = () => {
       category: "Hackathon",
     },
     {
-      image: activity2,
+      images: [activity2, activity3],
       title: "Student Volunteer Program",
       description: "Volunteered to teach basic programming concepts to high school students in community outreach program.",
       date: "2024",
@@ -49,7 +49,7 @@ const ActivityPortfolio = () => {
       category: "Volunteer",
     },
     {
-      image: activity3,
+      images: [activity3, activity1],
       title: "Tech Conference 2024",
       description: "Attended major technology conference learning about latest trends in web development and AI.",
       date: "2024",
@@ -57,7 +57,7 @@ const ActivityPortfolio = () => {
       category: "Conference",
     },
     {
-      image: activity4,
+      images: [activity4, activity2],
       title: "University Sports Day",
       description: "Participated in university sports competition, promoting teamwork and physical fitness.",
       date: "2024",
