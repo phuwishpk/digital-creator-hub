@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Code2, Film, Radio, Sparkles } from "lucide-react";
+import { ArrowRight, Code2, Film, Radio, Sparkles, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -178,7 +178,7 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">
               Check out my programming projects or media production portfolio
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap">
               <Link to="/programming">
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                   <Code2 className="w-5 h-5 mr-2" />
@@ -189,6 +189,12 @@ const Index = () => {
                 <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
                   <Film className="w-5 h-5 mr-2" />
                   Media Portfolio
+                </Button>
+              </Link>
+              <Link to="/activity">
+                <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
+                  <Trophy className="w-5 h-5 mr-2" />
+                  Activity Portfolio
                 </Button>
               </Link>
             </div>
