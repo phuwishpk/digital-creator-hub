@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import heroBg from "@/assets/hero-bg.jpg";
+import profilePlaceholder from "@/assets/profile-placeholder.jpg";
 
 const Index = () => {
   const skills = [
@@ -45,6 +46,20 @@ const Index = () => {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
+            {/* Profile Image */}
+            <div className="flex justify-center animate-fade-in" style={{ animationDelay: "0.05s" }}>
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-background">
+                  <img
+                    src={profilePlaceholder}
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 animate-fade-in" style={{ animationDelay: "0.1s" }}>
               <Sparkles className="w-4 h-4 text-primary" />
