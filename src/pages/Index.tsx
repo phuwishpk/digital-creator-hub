@@ -6,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 import FloatingParticles from "@/components/FloatingParticles";
 import useScrollFadeIn from "@/hooks/useScrollFadeIn";
 import { useLanguage } from "@/hooks/useLanguage";
-import profilePlaceholder from "@/assets/profile-placeholder.jpg";
+import profileImage from "@/assets/profile.jpg";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -55,8 +55,8 @@ const Index = () => {
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-background">
                   <img
-                    src={profilePlaceholder}
-                    alt="Profile"
+                    src={profileImage}
+                    alt="Phuwish Profile"
                     className="w-full h-full object-cover"
                   />
                 </div>
