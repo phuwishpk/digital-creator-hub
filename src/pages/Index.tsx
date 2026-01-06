@@ -53,7 +53,7 @@ const Index = () => {
             <div className="flex justify-center animate-fade-in" style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}>
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-background">
+                <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-background">
                   <img
                     src={profileImage}
                     alt="Phuwish Profile"
