@@ -4,6 +4,7 @@ import Footer from "@/components/layout/Footer";
 import MediaImageSlider from "@/components/cards/MediaImageSlider";
 import FloatingParticles from "@/components/FloatingParticles";
 import useScrollFadeIn from "@/hooks/useScrollFadeIn";
+import { useLanguage } from "@/hooks/useLanguage";
 import media1 from "@/assets/media-1.jpg";
 import media2 from "@/assets/media-2.jpg";
 import media3 from "@/assets/media-3.jpg";
@@ -15,6 +16,8 @@ import toolAfterEffects from "@/assets/tool-aftereffects.jpg";
 import toolCapcut from "@/assets/tool-capcut.jpg";
 
 const MediaPortfolio = () => {
+  const { t } = useLanguage();
+  
   const mediaSkills = [
     { image: toolVmix, name: "vMix" },
     { image: toolObs, name: "OBS Studio" },
@@ -60,18 +63,18 @@ const MediaPortfolio = () => {
 
   const sections = [
     {
-      title: "Live Streaming Works",
-      description: "Professional broadcast production including scene switching, custom overlays, audio control, and multi-platform streaming.",
+      title: t("media.create.streaming"),
+      description: t("media.create.streaming.desc"),
       icon: Radio,
     },
     {
-      title: "Video Editing Works",
-      description: "From raw footage to polished final cuts - color grading, sound design, and storytelling through editing.",
+      title: t("media.create.editing"),
+      description: t("media.create.editing.desc"),
       icon: Film,
     },
     {
-      title: "Social Media Content",
-      description: "Trendy, engaging short-form content optimized for platforms like TikTok, Instagram Reels, and YouTube Shorts.",
+      title: t("media.create.social"),
+      description: t("media.create.social.desc"),
       icon: Video,
     },
   ];
@@ -102,16 +105,16 @@ const MediaPortfolio = () => {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20">
               <Film className="w-4 h-4 text-secondary" />
-              <span className="text-sm text-secondary font-medium">Media Portfolio</span>
+              <span className="text-sm text-secondary font-medium">{t("media.badge")}</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-              Creating{" "}
+              {t("media.title")}{" "}
               <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
-                Visual Stories
+                {t("media.title.highlight")}
               </span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              Explore my media production works spanning live streaming, video editing, and motion graphics
+              {t("media.subtitle")}
             </p>
           </div>
         </div>
@@ -126,7 +129,7 @@ const MediaPortfolio = () => {
               skillsFade.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <h2 className="text-2xl font-bold text-foreground text-center">Production Tools</h2>
+            <h2 className="text-2xl font-bold text-foreground text-center">{t("media.tools")}</h2>
             <div className="flex flex-wrap justify-center gap-6">
               {mediaSkills.map((skill, index) => (
                 <div 
@@ -160,7 +163,7 @@ const MediaPortfolio = () => {
           >
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                What I Create
+                {t("media.create.title")}
               </h2>
             </div>
 
@@ -194,10 +197,10 @@ const MediaPortfolio = () => {
           >
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Featured Works
+                {t("media.works.title")}
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                A showcase of my media production projects across different formats and platforms
+                {t("media.works.subtitle")}
               </p>
             </div>
 

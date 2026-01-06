@@ -5,12 +5,15 @@ import ProjectCard from "@/components/cards/ProjectCard";
 import SkillBadge from "@/components/cards/SkillBadge";
 import FloatingParticles from "@/components/FloatingParticles";
 import useScrollFadeIn from "@/hooks/useScrollFadeIn";
+import { useLanguage } from "@/hooks/useLanguage";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
 import project4 from "@/assets/project-4.jpg";
 
 const ProgrammingPortfolio = () => {
+  const { t } = useLanguage();
+  
   const coreSkills = [
     { icon: Globe, name: "HTML" },
     { icon: FileCode, name: "CSS" },
@@ -89,16 +92,16 @@ const ProgrammingPortfolio = () => {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
               <Code2 className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium">Programming Portfolio</span>
+              <span className="text-sm text-primary font-medium">{t("programming.badge")}</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-              Code That{" "}
+              {t("programming.title")}{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Makes a Difference
+                {t("programming.title.highlight")}
               </span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              Explore my programming projects and the technologies I work with
+              {t("programming.subtitle")}
             </p>
           </div>
         </div>
@@ -115,7 +118,7 @@ const ProgrammingPortfolio = () => {
           >
             {/* Core Skills */}
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-foreground text-center">Core Technologies</h2>
+              <h2 className="text-2xl font-bold text-foreground text-center">{t("programming.core")}</h2>
               <div className="flex flex-wrap justify-center gap-3">
                 {coreSkills.map((skill) => (
                   <SkillBadge key={skill.name} icon={skill.icon} name={skill.name} variant="primary" />
@@ -125,7 +128,7 @@ const ProgrammingPortfolio = () => {
 
             {/* Additional Skills */}
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-foreground text-center">Additional Knowledge</h2>
+              <h2 className="text-2xl font-bold text-foreground text-center">{t("programming.additional")}</h2>
               <div className="flex flex-wrap justify-center gap-3">
                 {additionalSkills.map((skill) => (
                   <SkillBadge key={skill.name} icon={skill.icon} name={skill.name} variant="secondary" />
@@ -147,10 +150,10 @@ const ProgrammingPortfolio = () => {
           >
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Featured Projects
+                {t("programming.projects.title")}
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                A selection of my programming work showcasing various technologies and problem-solving approaches
+                {t("programming.projects.subtitle")}
               </p>
             </div>
 
