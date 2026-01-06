@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import ProgrammingPortfolio from "./pages/ProgrammingPortfolio";
 import MediaPortfolio from "./pages/MediaPortfolio";
 import ActivityPortfolio from "./pages/ActivityPortfolio";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
               <Route path="/programming" element={<ProgrammingPortfolio />} />
               <Route path="/media" element={<MediaPortfolio />} />
               <Route path="/activity" element={<ActivityPortfolio />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
