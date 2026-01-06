@@ -10,6 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -32,23 +33,36 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: formData,
+      });
 
-    toast({
-      title: t("contact.toast.success"),
-      description: t("contact.toast.success.desc"),
-    });
+      if (error) throw error;
 
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
+      toast({
+        title: t("contact.toast.success"),
+        description: t("contact.toast.success.desc"),
+      });
+
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error: any) {
+      console.error("Error sending message:", error);
+      toast({
+        title: t("contact.toast.error"),
+        description: t("contact.toast.error.desc"),
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
     {
       icon: Mail,
       label: t("contact.info.email"),
-      value: "phuwish@example.com",
+      value: "pphuwish@gmail.com",
     },
     {
       icon: Phone,

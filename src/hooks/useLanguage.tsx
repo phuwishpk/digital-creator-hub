@@ -108,6 +108,8 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.form.sending": "Sending...",
     "contact.toast.success": "Message Sent!",
     "contact.toast.success.desc": "Thank you for reaching out. I'll get back to you soon!",
+    "contact.toast.error": "Failed to Send",
+    "contact.toast.error.desc": "Something went wrong. Please try again later.",
     
     // Footer
     "footer.rights": "All rights reserved.",
@@ -212,6 +214,8 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.form.sending": "กำลังส่ง...",
     "contact.toast.success": "ส่งข้อความแล้ว!",
     "contact.toast.success.desc": "ขอบคุณที่ติดต่อมา ผมจะตอบกลับโดยเร็วที่สุด!",
+    "contact.toast.error": "ส่งไม่สำเร็จ",
+    "contact.toast.error.desc": "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง",
     
     // Footer
     "footer.rights": "สงวนลิขสิทธิ์",
