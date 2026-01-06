@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Facebook, Instagram, MessageCircle, Linkedin, Github } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingParticles from "@/components/FloatingParticles";
@@ -63,17 +63,28 @@ const Contact = () => {
       icon: Mail,
       label: t("contact.info.email"),
       value: "pphuwish@gmail.com",
+      href: "mailto:pphuwish@gmail.com",
     },
     {
       icon: Phone,
       label: t("contact.info.phone"),
       value: "+66 123 456 789",
+      href: "tel:+66123456789",
     },
     {
       icon: MapPin,
       label: t("contact.info.location"),
       value: "Bangkok, Thailand",
+      href: undefined,
     },
+  ];
+
+  const socialLinks = [
+    { icon: Facebook, href: "https://www.facebook.com/phuwish.prakob/?locale=th_TH", label: "Facebook" },
+    { icon: Instagram, href: "https://www.instagram.com/pwish___/", label: "Instagram" },
+    { icon: MessageCircle, href: "https://line.me/ti/p/U2JoiIq2zp", label: "Line" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/phuwish-prakobchit-573150257/", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/phuwishpk", label: "GitHub" },
   ];
 
   return (
@@ -122,11 +133,38 @@ const Contact = () => {
                       <p className="text-sm text-muted-foreground">
                         {info.label}
                       </p>
-                      <p className="font-medium text-foreground">{info.value}</p>
+                      {info.href ? (
+                        <a href={info.href} target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-primary transition-colors">
+                          {info.value}
+                        </a>
+                      ) : (
+                        <p className="font-medium text-foreground">{info.value}</p>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
               ))}
+
+              {/* Social Links */}
+              <Card className="bg-card/50 border-border/50 hover:border-primary/50 transition-all duration-300">
+                <CardContent className="p-4">
+                  <p className="text-sm text-muted-foreground mb-3">{t("contact.info.social")}</p>
+                  <div className="flex flex-wrap gap-3">
+                    {socialLinks.map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                      >
+                        <social.icon className="w-5 h-5" />
+                      </a>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
             {/* Contact Form */}
