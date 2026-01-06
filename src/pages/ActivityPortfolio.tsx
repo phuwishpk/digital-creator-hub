@@ -4,31 +4,34 @@ import Footer from "@/components/layout/Footer";
 import ActivityCard from "@/components/cards/ActivityCard";
 import FloatingParticles from "@/components/FloatingParticles";
 import useScrollFadeIn from "@/hooks/useScrollFadeIn";
+import { useLanguage } from "@/hooks/useLanguage";
 import activity1 from "@/assets/activity-1.jpg";
 import activity2 from "@/assets/activity-2.jpg";
 import activity3 from "@/assets/activity-3.jpg";
 import activity4 from "@/assets/activity-4.jpg";
 
 const ActivityPortfolio = () => {
+  const { t } = useLanguage();
+  
   const categories = [
     {
-      title: "Competition & Hackathon",
-      description: "Participated in coding competitions and hackathons to challenge and improve my skills.",
+      title: t("activity.cat.hackathon"),
+      description: t("activity.cat.hackathon.desc"),
       icon: Trophy,
     },
     {
-      title: "Volunteer & Community",
-      description: "Contributing to community through volunteer work, teaching, and knowledge sharing.",
+      title: t("activity.cat.volunteer"),
+      description: t("activity.cat.volunteer.desc"),
       icon: Users,
     },
     {
-      title: "Workshop & Conference",
-      description: "Attending and presenting at workshops and tech conferences to learn and network.",
+      title: t("activity.cat.workshop"),
+      description: t("activity.cat.workshop.desc"),
       icon: Award,
     },
     {
-      title: "Sports & Team Activities",
-      description: "Engaging in sports and team-building activities for personal development.",
+      title: t("activity.cat.sports"),
+      description: t("activity.cat.sports.desc"),
       icon: Target,
     },
   ];
@@ -93,16 +96,16 @@ const ActivityPortfolio = () => {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
               <Trophy className="w-4 h-4 text-accent" />
-              <span className="text-sm text-accent font-medium">Activity Portfolio</span>
+              <span className="text-sm text-accent font-medium">{t("activity.badge")}</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-              Beyond{" "}
+              {t("activity.title")}{" "}
               <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-                Coding & Media
+                {t("activity.title.highlight")}
               </span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              Explore my extracurricular activities, competitions, and community involvement
+              {t("activity.subtitle")}
             </p>
           </div>
         </div>
@@ -118,7 +121,7 @@ const ActivityPortfolio = () => {
             }`}
           >
             <div className="text-center mb-12">
-              <h2 className="text-2xl font-bold text-foreground">Areas of Involvement</h2>
+              <h2 className="text-2xl font-bold text-foreground">{t("activity.areas")}</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -151,10 +154,10 @@ const ActivityPortfolio = () => {
           >
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Featured Activities
+                {t("activity.featured.title")}
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Highlights from my participation in various events and activities
+                {t("activity.featured.subtitle")}
               </p>
             </div>
 
