@@ -68,6 +68,8 @@ const ActivityPortfolio = () => {
   ];
 
   const heroFade = useScrollFadeIn(0.1);
+  const categoriesFade = useScrollFadeIn(0.1);
+  const activitiesFade = useScrollFadeIn(0.1);
 
   return (
     <div className="min-h-screen bg-background">
@@ -102,24 +104,31 @@ const ActivityPortfolio = () => {
       {/* Categories Section */}
       <section className="py-16 bg-card/50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold text-foreground">Areas of Involvement</h2>
-          </div>
+          <div 
+            ref={categoriesFade.ref}
+            className={`transition-all duration-1000 ${
+              categoriesFade.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-2xl font-bold text-foreground">Areas of Involvement</h2>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {categories.map((category, index) => (
-              <div
-                key={category.title}
-                className="p-6 rounded-xl bg-card border border-border hover:border-accent/50 transition-all duration-300"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                  <category.icon className="w-6 h-6 text-accent" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {categories.map((category, index) => (
+                <div
+                  key={category.title}
+                  className="p-6 rounded-xl bg-card border border-border hover:border-accent/50 transition-all duration-300 opacity-0 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.15}s`, animationFillMode: "forwards" }}
+                >
+                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                    <category.icon className="w-6 h-6 text-accent" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{category.title}</h3>
+                  <p className="text-sm text-muted-foreground">{category.description}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{category.title}</h3>
-                <p className="text-sm text-muted-foreground">{category.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -127,25 +136,32 @@ const ActivityPortfolio = () => {
       {/* Activities Gallery */}
       <section className="py-24">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Featured Activities
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Highlights from my participation in various events and activities
-            </p>
-          </div>
+          <div 
+            ref={activitiesFade.ref}
+            className={`transition-all duration-1000 ${
+              activitiesFade.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Featured Activities
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Highlights from my participation in various events and activities
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {activities.map((activity, index) => (
-              <div
-                key={activity.title}
-                className="opacity-0 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <ActivityCard {...activity} />
-              </div>
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {activities.map((activity, index) => (
+                <div
+                  key={activity.title}
+                  className="opacity-0 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.15}s`, animationFillMode: "forwards" }}
+                >
+                  <ActivityCard {...activity} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

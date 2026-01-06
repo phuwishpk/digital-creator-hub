@@ -64,6 +64,8 @@ const ProgrammingPortfolio = () => {
   ];
 
   const heroFade = useScrollFadeIn(0.1);
+  const skillsFade = useScrollFadeIn(0.1);
+  const projectsFade = useScrollFadeIn(0.1);
 
   return (
     <div className="min-h-screen bg-background">
@@ -98,7 +100,12 @@ const ProgrammingPortfolio = () => {
       {/* Skills Section */}
       <section className="py-16 bg-card/50">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto space-y-12">
+          <div 
+            ref={skillsFade.ref}
+            className={`max-w-5xl mx-auto space-y-12 transition-all duration-1000 ${
+              skillsFade.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
             {/* Core Skills */}
             <div className="space-y-6">
               <h2 className="text-2xl font-bold text-foreground text-center">Core Technologies</h2>
@@ -125,25 +132,32 @@ const ProgrammingPortfolio = () => {
       {/* Projects Section */}
       <section className="py-24">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Featured Projects
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A selection of my programming work showcasing various technologies and problem-solving approaches
-            </p>
-          </div>
+          <div 
+            ref={projectsFade.ref}
+            className={`transition-all duration-1000 ${
+              projectsFade.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Featured Projects
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                A selection of my programming work showcasing various technologies and problem-solving approaches
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {projects.map((project, index) => (
-              <div
-                key={project.title}
-                className="opacity-0 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <ProjectCard {...project} />
-              </div>
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {projects.map((project, index) => (
+                <div
+                  key={project.title}
+                  className="opacity-0 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.15}s`, animationFillMode: "forwards" }}
+                >
+                  <ProjectCard {...project} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
