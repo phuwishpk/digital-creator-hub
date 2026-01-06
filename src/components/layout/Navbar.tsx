@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Code2, Film } from "lucide-react";
+import { Menu, X, Code2, Film, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -12,6 +12,7 @@ const Navbar = () => {
     { path: "/", label: "Home" },
     { path: "/programming", label: "Programming", icon: Code2 },
     { path: "/media", label: "Media", icon: Film },
+    { path: "/activity", label: "Activity", icon: Trophy },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -25,7 +26,7 @@ const Navbar = () => {
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center transition-transform group-hover:scale-110">
               <span className="text-primary-foreground font-bold text-lg">P</span>
             </div>
-            <span className="font-bold text-lg text-foreground hidden sm:block">Portfolio</span>
+            <span className="font-bold text-lg text-foreground hidden sm:block">Phuwish Portfolio</span>
           </Link>
 
           {/* Desktop Navigation */}

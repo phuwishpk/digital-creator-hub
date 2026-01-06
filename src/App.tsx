@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/hooks/useTheme";
 import Index from "./pages/Index";
 import ProgrammingPortfolio from "./pages/ProgrammingPortfolio";
 import MediaPortfolio from "./pages/MediaPortfolio";
+import ActivityPortfolio from "./pages/ActivityPortfolio";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/programming" element={<ProgrammingPortfolio />} />
             <Route path="/media" element={<MediaPortfolio />} />
+            <Route path="/activity" element={<ActivityPortfolio />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
