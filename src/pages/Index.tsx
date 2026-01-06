@@ -3,7 +3,7 @@ import { ArrowRight, Code2, Film, Radio, Sparkles, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import heroBg from "@/assets/hero-bg.jpg";
+import FloatingParticles from "@/components/FloatingParticles";
 import profilePlaceholder from "@/assets/profile-placeholder.jpg";
 
 const Index = () => {
@@ -34,14 +34,10 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        {/* Background Image */}
+        {/* Animated Background */}
         <div className="absolute inset-0 z-0">
-          <img
-            src={heroBg}
-            alt="Background"
-            className="w-full h-full object-cover opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+          <FloatingParticles />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
