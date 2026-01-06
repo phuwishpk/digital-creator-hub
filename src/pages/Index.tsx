@@ -187,44 +187,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-card/50 to-background">
-        <div className="container mx-auto px-4">
-          <div 
-            ref={ctaFade.ref}
-            className={`max-w-4xl mx-auto text-center space-y-8 transition-all duration-1000 ${
-              ctaFade.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              {t("home.cta.title")}
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              {t("home.cta.subtitle")}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap">
-              <Link to="/programming">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                  <Code2 className="w-5 h-5 mr-2" />
-                  {t("home.cta.btn.programming")}
-                </Button>
-              </Link>
-              <Link to="/media">
-                <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
-                  <Film className="w-5 h-5 mr-2" />
-                  {t("home.cta.btn.media")}
-                </Button>
-              </Link>
-              <Link to="/activity">
-                <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-                  <Trophy className="w-5 h-5 mr-2" />
-                  {t("home.cta.btn.activity")}
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>
