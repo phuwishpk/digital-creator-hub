@@ -92,7 +92,7 @@ const Index = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 opacity-0 animate-fade-in" style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 opacity-0 animate-fade-in flex-wrap" style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}>
               <Link to="/programming">
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_30px_hsl(198_93%_55%/0.3)] hover:shadow-[0_0_40px_hsl(198_93%_55%/0.4)] transition-all duration-300">
                   <Code2 className="w-5 h-5 mr-2" />
@@ -104,6 +104,12 @@ const Index = () => {
                 <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-all duration-300">
                   <Film className="w-5 h-5 mr-2" />
                   {t("home.cta.media")}
+                </Button>
+              </Link>
+              <Link to="/activity">
+                <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300">
+                  <Trophy className="w-5 h-5 mr-2" />
+                  {t("home.cta.btn.activity")}
                 </Button>
               </Link>
             </div>
