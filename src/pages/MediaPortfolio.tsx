@@ -1,7 +1,7 @@
 import { Film, Video, Tv, Scissors, Wand2, Smartphone, Monitor, Radio } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import MediaCard from "@/components/cards/MediaCard";
+import MediaImageSlider from "@/components/cards/MediaImageSlider";
 import SkillBadge from "@/components/cards/SkillBadge";
 import media1 from "@/assets/media-1.jpg";
 import media2 from "@/assets/media-2.jpg";
@@ -19,7 +19,7 @@ const MediaPortfolio = () => {
 
   const mediaWorks = [
     {
-      image: media1,
+      images: [media1, media2, media3],
       title: "Multi-Camera Live Event",
       description: "Professional live streaming production for corporate events with multi-camera switching, custom overlays, and real-time audio mixing.",
       tools: ["vMix", "NDI", "Audio Mixer"],
@@ -27,7 +27,7 @@ const MediaPortfolio = () => {
       videoUrl: "#",
     },
     {
-      image: media2,
+      images: [media2, media1, media4],
       title: "Documentary Short Film",
       description: "Full editing workflow including color grading, sound design, and motion graphics for a 15-minute documentary.",
       tools: ["Premiere Pro", "DaVinci Resolve"],
@@ -35,7 +35,7 @@ const MediaPortfolio = () => {
       videoUrl: "#",
     },
     {
-      image: media3,
+      images: [media3, media4, media1],
       title: "Brand Motion Graphics",
       description: "Animated logo reveals, lower thirds, and transition effects for a brand identity package used across social media.",
       tools: ["After Effects", "Illustrator"],
@@ -43,7 +43,7 @@ const MediaPortfolio = () => {
       videoUrl: "#",
     },
     {
-      image: media4,
+      images: [media4, media3, media2],
       title: "Social Media Content Series",
       description: "Engaging short-form videos for TikTok and Instagram Reels with trending effects, captions, and music sync.",
       tools: ["CapCut", "Premiere Pro"],
@@ -155,7 +155,7 @@ const MediaPortfolio = () => {
                 className="opacity-0 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <MediaCard {...work} />
+                <MediaImageSlider {...work} />
               </div>
             ))}
           </div>

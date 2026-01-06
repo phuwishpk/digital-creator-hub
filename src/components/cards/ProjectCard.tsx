@@ -1,4 +1,4 @@
-import { ExternalLink, Github } from "lucide-react";
+import { Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ProjectCardProps {
@@ -7,7 +7,6 @@ interface ProjectCardProps {
   description: string;
   technologies: string[];
   githubUrl?: string;
-  demoUrl?: string;
 }
 
 const ProjectCard = ({
@@ -16,7 +15,6 @@ const ProjectCard = ({
   description,
   technologies,
   githubUrl = "#",
-  demoUrl = "#",
 }: ProjectCardProps) => {
   return (
     <div className="group relative bg-card rounded-xl overflow-hidden border border-border transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(198_93%_55%/0.15)]">
@@ -40,16 +38,6 @@ const ProjectCard = ({
             <a href={githubUrl} target="_blank" rel="noopener noreferrer">
               <Github className="w-4 h-4 mr-2" />
               GitHub
-            </a>
-          </Button>
-          <Button
-            size="sm"
-            className="bg-primary text-primary-foreground hover:bg-primary/90"
-            asChild
-          >
-            <a href={demoUrl} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="w-4 h-4 mr-2" />
-              Demo
             </a>
           </Button>
         </div>
