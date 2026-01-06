@@ -2,6 +2,7 @@ import { Trophy, Users, Award, Target } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ActivityCard from "@/components/cards/ActivityCard";
+import FloatingParticles from "@/components/FloatingParticles";
 import useScrollFadeIn from "@/hooks/useScrollFadeIn";
 import activity1 from "@/assets/activity-1.jpg";
 import activity2 from "@/assets/activity-2.jpg";
@@ -76,8 +77,14 @@ const ActivityPortfolio = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4">
-        <div className="container mx-auto">
+      <section className="relative pt-32 pb-16 px-4 overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+          <FloatingParticles />
+        </div>
+
+        <div className="container mx-auto relative z-10">
           <div 
             ref={heroFade.ref}
             className={`max-w-3xl mx-auto text-center space-y-6 transition-all duration-1000 ${
