@@ -15,6 +15,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.programming": "Programming",
     "nav.media": "Media",
     "nav.activity": "Activity",
+    "nav.contact": "Contact",
     
     // Home Page
     "home.badge": "Open for Opportunities",
@@ -86,6 +87,28 @@ const translations: Record<Language, Record<string, string>> = {
     "activity.featured.title": "Featured Activities",
     "activity.featured.subtitle": "Highlights from my participation in various events and activities",
     
+    // Contact Page
+    "contact.badge": "Contact Me",
+    "contact.title": "Get In",
+    "contact.title.highlight": "Touch",
+    "contact.subtitle": "Have a question or want to work together? Feel free to reach out!",
+    "contact.info.email": "Email",
+    "contact.info.phone": "Phone",
+    "contact.info.location": "Location",
+    "contact.form.title": "Send Me a Message",
+    "contact.form.name": "Name",
+    "contact.form.name.placeholder": "Your name",
+    "contact.form.email": "Email",
+    "contact.form.email.placeholder": "your@email.com",
+    "contact.form.subject": "Subject",
+    "contact.form.subject.placeholder": "What's this about?",
+    "contact.form.message": "Message",
+    "contact.form.message.placeholder": "Your message...",
+    "contact.form.submit": "Send Message",
+    "contact.form.sending": "Sending...",
+    "contact.toast.success": "Message Sent!",
+    "contact.toast.success.desc": "Thank you for reaching out. I'll get back to you soon!",
+    
     // Footer
     "footer.rights": "All rights reserved.",
     "footer.built": "Built with React & Tailwind CSS",
@@ -96,6 +119,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.programming": "โปรแกรมมิ่ง",
     "nav.media": "มีเดีย",
     "nav.activity": "กิจกรรม",
+    "nav.contact": "ติดต่อ",
     
     // Home Page
     "home.badge": "พร้อมรับโอกาสใหม่",
@@ -166,6 +190,28 @@ const translations: Record<Language, Record<string, string>> = {
     "activity.cat.sports.desc": "มีส่วนร่วมในกีฬาและกิจกรรมสร้างทีมเพื่อพัฒนาตนเอง",
     "activity.featured.title": "กิจกรรมเด่น",
     "activity.featured.subtitle": "ไฮไลท์จากการเข้าร่วมกิจกรรมและอีเวนต์ต่างๆ",
+    
+    // Contact Page
+    "contact.badge": "ติดต่อผม",
+    "contact.title": "ติดต่อ",
+    "contact.title.highlight": "ได้เลย",
+    "contact.subtitle": "มีคำถามหรืออยากทำงานร่วมกัน? ติดต่อผมได้เลย!",
+    "contact.info.email": "อีเมล",
+    "contact.info.phone": "เบอร์โทร",
+    "contact.info.location": "ที่อยู่",
+    "contact.form.title": "ส่งข้อความถึงผม",
+    "contact.form.name": "ชื่อ",
+    "contact.form.name.placeholder": "ชื่อของคุณ",
+    "contact.form.email": "อีเมล",
+    "contact.form.email.placeholder": "your@email.com",
+    "contact.form.subject": "หัวข้อ",
+    "contact.form.subject.placeholder": "เรื่องอะไร?",
+    "contact.form.message": "ข้อความ",
+    "contact.form.message.placeholder": "ข้อความของคุณ...",
+    "contact.form.submit": "ส่งข้อความ",
+    "contact.form.sending": "กำลังส่ง...",
+    "contact.toast.success": "ส่งข้อความแล้ว!",
+    "contact.toast.success.desc": "ขอบคุณที่ติดต่อมา ผมจะตอบกลับโดยเร็วที่สุด!",
     
     // Footer
     "footer.rights": "สงวนลิขสิทธิ์",

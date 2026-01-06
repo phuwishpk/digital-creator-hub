@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Code2, Film, Trophy } from "lucide-react";
+import { Menu, X, Code2, Film, Trophy, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
@@ -16,6 +16,7 @@ const Navbar = () => {
     { path: "/programming", label: t("nav.programming"), icon: Code2 },
     { path: "/media", label: t("nav.media"), icon: Film },
     { path: "/activity", label: t("nav.activity"), icon: Trophy },
+    { path: "/contact", label: t("nav.contact"), icon: Mail },
   ];
 
   const isActive = (path: string) => location.pathname === path;
