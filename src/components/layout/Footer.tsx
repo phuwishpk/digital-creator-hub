@@ -1,12 +1,13 @@
-import { Github, Linkedin, Mail, Youtube, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, Facebook, Instagram, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Mail, href: "mailto:contact@example.com", label: "Email" },
+    { icon: Facebook, href: "https://www.facebook.com/phuwish.prakob/?locale=th_TH", label: "Facebook" },
+    { icon: Instagram, href: "https://www.instagram.com/pwish___/", label: "Instagram" },
+    { icon: MessageCircle, href: "https://line.me/ti/p/U2JoiIq2zp", label: "Line" },
+    { icon: Mail, href: "mailto:pphuwish@gmail.com", label: "Email" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/phuwish-prakobchit-573150257/", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/phuwishpk", label: "GitHub" },
   ];
 
   return (
@@ -52,7 +53,7 @@ const Footer = () => {
               ))}
             </div>
             <p className="text-muted-foreground text-sm">
-              contact@example.com
+              pphuwish@gmail.com
             </p>
           </div>
         </div>
