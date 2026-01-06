@@ -1,20 +1,29 @@
 import { useEffect, useRef } from "react";
 
-interface Particle {
+interface Line {
   x: number;
   y: number;
-  vx: number;
-  vy: number;
-  size: number;
+  length: number;
+  speed: number;
   opacity: number;
   color: string;
+  direction: "horizontal" | "vertical";
+  trail: { x: number; y: number }[];
+}
+
+interface Node {
+  x: number;
+  y: number;
+  size: number;
+  pulsePhase: number;
+  connections: number[];
 }
 
 const FloatingParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particlesRef = useRef<Particle[]>([]);
+  const linesRef = useRef<Line[]>([]);
+  const nodesRef = useRef<Node[]>([]);
   const animationRef = useRef<number>();
-  const mouseRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -34,92 +43,163 @@ const FloatingParticles = () => {
       canvas.height = window.innerHeight;
     };
 
-    const initParticles = () => {
-      const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
-      particlesRef.current = [];
+    const initElements = () => {
+      // Initialize grid nodes
+      const gridSpacing = 100;
+      nodesRef.current = [];
+      
+      for (let x = gridSpacing; x < canvas.width; x += gridSpacing) {
+        for (let y = gridSpacing; y < canvas.height; y += gridSpacing) {
+          if (Math.random() > 0.6) {
+            nodesRef.current.push({
+              x: x + (Math.random() - 0.5) * 20,
+              y: y + (Math.random() - 0.5) * 20,
+              size: Math.random() * 2 + 1,
+              pulsePhase: Math.random() * Math.PI * 2,
+              connections: [],
+            });
+          }
+        }
+      }
 
-      for (let i = 0; i < particleCount; i++) {
-        particlesRef.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          size: Math.random() * 2 + 1,
-          opacity: Math.random() * 0.5 + 0.2,
+      // Create connections between nearby nodes
+      nodesRef.current.forEach((node, i) => {
+        nodesRef.current.forEach((other, j) => {
+          if (i !== j) {
+            const dx = node.x - other.x;
+            const dy = node.y - other.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 150 && Math.random() > 0.5) {
+              node.connections.push(j);
+            }
+          }
+        });
+      });
+
+      // Initialize flowing lines
+      const lineCount = 15;
+      linesRef.current = [];
+
+      for (let i = 0; i < lineCount; i++) {
+        const isHorizontal = Math.random() > 0.5;
+        linesRef.current.push({
+          x: isHorizontal ? -100 : Math.random() * canvas.width,
+          y: isHorizontal ? Math.random() * canvas.height : -100,
+          length: Math.random() * 100 + 50,
+          speed: Math.random() * 2 + 1,
+          opacity: Math.random() * 0.5 + 0.3,
           color: colors[Math.floor(Math.random() * colors.length)],
+          direction: isHorizontal ? "horizontal" : "vertical",
+          trail: [],
         });
       }
     };
 
-    const drawParticles = () => {
+    const drawElements = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particlesRef.current.forEach((particle, i) => {
-        // Update position
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-
-        // Bounce off edges
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
-
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = particle.color.replace(")", `, ${particle.opacity})`).replace("hsl", "hsla");
-        ctx.fill();
-
-        // Draw connections
-        particlesRef.current.slice(i + 1).forEach((other) => {
-          const dx = particle.x - other.x;
-          const dy = particle.y - other.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 150) {
+      // Draw grid connections (static lines)
+      nodesRef.current.forEach((node) => {
+        node.connections.forEach((connectionIndex) => {
+          const other = nodesRef.current[connectionIndex];
+          if (other) {
             ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
+            ctx.moveTo(node.x, node.y);
             ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = `hsla(198, 93%, 55%, ${0.15 * (1 - distance / 150)})`;
+            ctx.strokeStyle = "hsla(198, 93%, 55%, 0.08)";
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         });
-
-        // Mouse interaction
-        const dx = mouseRef.current.x - particle.x;
-        const dy = mouseRef.current.y - particle.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < 100) {
-          const force = (100 - distance) / 100;
-          particle.vx -= (dx / distance) * force * 0.02;
-          particle.vy -= (dy / distance) * force * 0.02;
-        }
       });
 
-      animationRef.current = requestAnimationFrame(drawParticles);
-    };
+      // Draw and animate nodes with pulse effect
+      const time = Date.now() * 0.001;
+      nodesRef.current.forEach((node) => {
+        const pulse = Math.sin(time * 2 + node.pulsePhase) * 0.5 + 0.5;
+        const size = node.size + pulse * 1;
+        
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, size, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(198, 93%, 55%, ${0.3 + pulse * 0.3})`;
+        ctx.fill();
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY };
+        // Glow effect
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, size + 3, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(198, 93%, 55%, ${0.05 + pulse * 0.05})`;
+        ctx.fill();
+      });
+
+      // Draw and animate flowing lines (data streams)
+      linesRef.current.forEach((line) => {
+        // Update position
+        if (line.direction === "horizontal") {
+          line.x += line.speed;
+          if (line.x > canvas.width + 100) {
+            line.x = -line.length;
+            line.y = Math.random() * canvas.height;
+          }
+        } else {
+          line.y += line.speed;
+          if (line.y > canvas.height + 100) {
+            line.y = -line.length;
+            line.x = Math.random() * canvas.width;
+          }
+        }
+
+        // Draw line with gradient trail
+        const gradient = line.direction === "horizontal"
+          ? ctx.createLinearGradient(line.x - line.length, line.y, line.x, line.y)
+          : ctx.createLinearGradient(line.x, line.y - line.length, line.x, line.y);
+
+        gradient.addColorStop(0, "transparent");
+        gradient.addColorStop(0.5, line.color.replace(")", `, ${line.opacity * 0.5})`).replace("hsl", "hsla"));
+        gradient.addColorStop(1, line.color.replace(")", `, ${line.opacity})`).replace("hsl", "hsla"));
+
+        ctx.beginPath();
+        if (line.direction === "horizontal") {
+          ctx.moveTo(line.x - line.length, line.y);
+          ctx.lineTo(line.x, line.y);
+        } else {
+          ctx.moveTo(line.x, line.y - line.length);
+          ctx.lineTo(line.x, line.y);
+        }
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 2;
+        ctx.lineCap = "round";
+        ctx.stroke();
+
+        // Draw head glow
+        ctx.beginPath();
+        ctx.arc(
+          line.direction === "horizontal" ? line.x : line.x,
+          line.direction === "horizontal" ? line.y : line.y,
+          3,
+          0,
+          Math.PI * 2
+        );
+        ctx.fillStyle = line.color.replace(")", `, ${line.opacity})`).replace("hsl", "hsla");
+        ctx.fill();
+      });
+
+      animationRef.current = requestAnimationFrame(drawElements);
     };
 
     resizeCanvas();
-    initParticles();
-    drawParticles();
+    initElements();
+    drawElements();
 
     window.addEventListener("resize", () => {
       resizeCanvas();
-      initParticles();
+      initElements();
     });
-    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
       window.removeEventListener("resize", resizeCanvas);
-      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
