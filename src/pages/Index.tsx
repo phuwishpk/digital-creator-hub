@@ -5,9 +5,11 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingParticles from "@/components/FloatingParticles";
 import useScrollFadeIn from "@/hooks/useScrollFadeIn";
+import { useLanguage } from "@/hooks/useLanguage";
 import profilePlaceholder from "@/assets/profile-placeholder.jpg";
 
 const Index = () => {
+  const { t } = useLanguage();
   const aboutFade = useScrollFadeIn(0.1);
   const skillsFade = useScrollFadeIn(0.1);
   const ctaFade = useScrollFadeIn(0.1);
@@ -15,20 +17,20 @@ const Index = () => {
   const skills = [
     {
       icon: Code2,
-      title: "Programming",
-      description: "Web development with React, JavaScript, and modern frameworks",
+      title: t("home.skills.programming"),
+      description: t("home.skills.programming.desc"),
       color: "primary",
     },
     {
       icon: Film,
-      title: "Media Production",
-      description: "Video editing, motion graphics, and visual content creation",
+      title: t("home.skills.media"),
+      description: t("home.skills.media.desc"),
       color: "secondary",
     },
     {
       icon: Radio,
-      title: "Live Streaming",
-      description: "Professional broadcast production with vMix and OBS",
+      title: t("home.skills.streaming"),
+      description: t("home.skills.streaming.desc"),
       color: "accent",
     },
   ];
@@ -64,29 +66,29 @@ const Index = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 opacity-0 animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium">Open for Opportunities</span>
+              <span className="text-sm text-primary font-medium">{t("home.badge")}</span>
             </div>
 
             {/* Title */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground opacity-0 animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-              Hi, I'm a{" "}
+              {t("home.title")}{" "}
               <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                Junior Programmer
+                {t("home.title.highlight")}
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-muted-foreground opacity-0 animate-fade-in" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
-              & Digital Media Creator
+              {t("home.subtitle")}
             </p>
 
             {/* Tagline */}
             <div className="flex items-center justify-center gap-4 text-lg opacity-0 animate-fade-in" style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
-              <span className="text-primary font-mono">{"<Code />"}</span>
+              <span className="text-primary font-mono">{t("home.tagline.code")}</span>
               <span className="text-muted-foreground">•</span>
-              <span className="text-secondary font-medium">Live Streaming</span>
+              <span className="text-secondary font-medium">{t("home.tagline.streaming")}</span>
               <span className="text-muted-foreground">•</span>
-              <span className="text-accent font-medium">Video Production</span>
+              <span className="text-accent font-medium">{t("home.tagline.video")}</span>
             </div>
 
             {/* CTA Buttons */}
@@ -94,14 +96,14 @@ const Index = () => {
               <Link to="/programming">
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_30px_hsl(198_93%_55%/0.3)] hover:shadow-[0_0_40px_hsl(198_93%_55%/0.4)] transition-all duration-300">
                   <Code2 className="w-5 h-5 mr-2" />
-                  View Programming Portfolio
+                  {t("home.cta.programming")}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
               <Link to="/media">
                 <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-all duration-300">
                   <Film className="w-5 h-5 mr-2" />
-                  View Media Portfolio
+                  {t("home.cta.media")}
                 </Button>
               </Link>
             </div>
@@ -126,15 +128,13 @@ const Index = () => {
             }`}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              About Me
+              {t("home.about.title")}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a passionate Junior Programmer with a unique blend of technical programming skills and creative media production expertise. 
-              My background spans web development, video editing, motion graphics, and live streaming production. 
-              I bring a creative perspective to technical challenges and technical precision to creative projects.
+              {t("home.about.p1")}
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm eager to contribute to innovative teams and take on projects that challenge me to grow while delivering impactful results.
+              {t("home.about.p2")}
             </p>
           </div>
         </div>
@@ -151,10 +151,10 @@ const Index = () => {
           >
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                What I Do
+                {t("home.skills.title")}
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Combining technical expertise with creative vision to deliver comprehensive digital solutions
+                {t("home.skills.subtitle")}
               </p>
             </div>
 
@@ -191,28 +191,28 @@ const Index = () => {
             }`}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Ready to Explore My Work?
+              {t("home.cta.title")}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Check out my programming projects or media production portfolio
+              {t("home.cta.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap">
               <Link to="/programming">
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                   <Code2 className="w-5 h-5 mr-2" />
-                  Programming Portfolio
+                  {t("home.cta.btn.programming")}
                 </Button>
               </Link>
               <Link to="/media">
                 <Button size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
                   <Film className="w-5 h-5 mr-2" />
-                  Media Portfolio
+                  {t("home.cta.btn.media")}
                 </Button>
               </Link>
               <Link to="/activity">
                 <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
                   <Trophy className="w-5 h-5 mr-2" />
-                  Activity Portfolio
+                  {t("home.cta.btn.activity")}
                 </Button>
               </Link>
             </div>

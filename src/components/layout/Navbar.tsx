@@ -3,16 +3,19 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Code2, Film, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   const navLinks = [
-    { path: "/", label: "Home" },
-    { path: "/programming", label: "Programming", icon: Code2 },
-    { path: "/media", label: "Media", icon: Film },
-    { path: "/activity", label: "Activity", icon: Trophy },
+    { path: "/", label: t("nav.home") },
+    { path: "/programming", label: t("nav.programming"), icon: Code2 },
+    { path: "/media", label: t("nav.media"), icon: Film },
+    { path: "/activity", label: t("nav.activity"), icon: Trophy },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -46,11 +49,13 @@ const Navbar = () => {
                 </Button>
               </Link>
             ))}
+            <LanguageToggle />
             <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
+            <LanguageToggle />
             <ThemeToggle />
             <Button
               variant="ghost"
