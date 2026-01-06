@@ -2,6 +2,7 @@ import { Film, Video, Radio } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MediaImageSlider from "@/components/cards/MediaImageSlider";
+import useScrollFadeIn from "@/hooks/useScrollFadeIn";
 import media1 from "@/assets/media-1.jpg";
 import media2 from "@/assets/media-2.jpg";
 import media3 from "@/assets/media-3.jpg";
@@ -74,6 +75,8 @@ const MediaPortfolio = () => {
     },
   ];
 
+  const heroFade = useScrollFadeIn(0.1);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -81,7 +84,12 @@ const MediaPortfolio = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
+          <div 
+            ref={heroFade.ref}
+            className={`max-w-3xl mx-auto text-center space-y-6 transition-all duration-1000 ${
+              heroFade.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20">
               <Film className="w-4 h-4 text-secondary" />
               <span className="text-sm text-secondary font-medium">Media Portfolio</span>

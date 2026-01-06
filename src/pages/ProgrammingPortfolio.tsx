@@ -3,6 +3,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ProjectCard from "@/components/cards/ProjectCard";
 import SkillBadge from "@/components/cards/SkillBadge";
+import useScrollFadeIn from "@/hooks/useScrollFadeIn";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
@@ -62,6 +63,8 @@ const ProgrammingPortfolio = () => {
     },
   ];
 
+  const heroFade = useScrollFadeIn(0.1);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -69,7 +72,12 @@ const ProgrammingPortfolio = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
+          <div 
+            ref={heroFade.ref}
+            className={`max-w-3xl mx-auto text-center space-y-6 transition-all duration-1000 ${
+              heroFade.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
               <Code2 className="w-4 h-4 text-primary" />
               <span className="text-sm text-primary font-medium">Programming Portfolio</span>
