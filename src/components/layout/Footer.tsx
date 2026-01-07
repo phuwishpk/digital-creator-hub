@@ -1,6 +1,8 @@
 import { Github, Linkedin, Mail, Facebook, Instagram, MessageCircle } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Footer = () => {
+  const { t } = useLanguage();
   const socialLinks = [
     { icon: Facebook, href: "https://www.facebook.com/phuwish.prakob/?locale=th_TH", label: "Facebook" },
     { icon: Instagram, href: "https://www.instagram.com/pwish___/", label: "Instagram" },
@@ -20,16 +22,16 @@ const Footer = () => {
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">P</span>
               </div>
-              <span className="font-bold text-lg text-foreground">Portfolio</span>
+              <span className="font-bold text-lg text-foreground">{t("footer.brand")}</span>
             </div>
             <p className="text-muted-foreground text-sm">
-              Junior Programmer & Digital Media Creator passionate about building innovative solutions and creating engaging content.
+              {t("footer.description")}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Quick Links</h3>
+            <h3 className="font-semibold text-foreground">{t("footer.quicklinks")}</h3>
             <ul className="space-y-2">
               <li><a href="/" className="text-muted-foreground hover:text-primary transition-colors">Home</a></li>
               <li><a href="/programming" className="text-muted-foreground hover:text-primary transition-colors">Programming Portfolio</a></li>
@@ -39,7 +41,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground">Connect</h3>
+            <h3 className="font-semibold text-foreground">{t("footer.connect")}</h3>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a

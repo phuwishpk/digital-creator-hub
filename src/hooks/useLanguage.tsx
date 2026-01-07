@@ -113,6 +113,10 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.toast.error.desc": "Something went wrong. Please try again later.",
     
     // Footer
+    "footer.brand": "Phuwish Portfolio",
+    "footer.description": "Junior Programmer & Digital Media Creator passionate about building innovative solutions and creating engaging content.",
+    "footer.quicklinks": "Quick Links",
+    "footer.connect": "Connect",
     "footer.rights": "All rights reserved.",
     "footer.built": "Built with React & Tailwind CSS",
   },
@@ -220,6 +224,10 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.toast.error.desc": "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง",
     
     // Footer
+    "footer.brand": "Phuwish Portfolio",
+    "footer.description": "Junior Programmer & ผู้สร้างสรรค์สื่อดิจิทัล ที่หลงใหลในการสร้างโซลูชันนวัตกรรมและคอนเทนต์ที่น่าสนใจ",
+    "footer.quicklinks": "ลิงก์ด่วน",
+    "footer.connect": "ติดต่อ",
     "footer.rights": "สงวนลิขสิทธิ์",
     "footer.built": "สร้างด้วย React & Tailwind CSS",
   },
