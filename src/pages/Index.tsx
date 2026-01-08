@@ -70,14 +70,16 @@ const Index = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground opacity-0 animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-              {t("home.title")}{" "}
-              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            <div className="opacity-0 animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
+              <p className="text-2xl md:text-3xl text-muted-foreground mb-2">
+                {t("home.title")}
+              </p>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                 {t("home.title.highlight")}
-              </span>
-            </h1>
+              </h1>
+            </div>
 
-            {/* Subtitle */}
+            {/* Subtitle - Position */}
             <p className="text-xl md:text-2xl text-muted-foreground opacity-0 animate-fade-in" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
               {t("home.subtitle")}
             </p>
