@@ -19,9 +19,9 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Home Page
     "home.badge": "Open for Opportunities",
-    "home.title": "Hi, I'm a",
-    "home.title.highlight": "Junior Programmer",
-    "home.subtitle": "& Digital Media Creator",
+    "home.title": "Hi, My name is",
+    "home.title.highlight": "Phuwish Prakobchit",
+    "home.subtitle": "",
     "home.tagline.code": "<Code />",
     "home.tagline.streaming": "Live Streaming",
     "home.tagline.video": "Video Production",
@@ -130,9 +130,9 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Home Page
     "home.badge": "พร้อมรับโอกาสใหม่",
-    "home.title": "สวัสดี ผมเป็น",
-    "home.title.highlight": "Junior Programmer",
-    "home.subtitle": "& ผู้สร้างสรรค์สื่อดิจิทัล",
+    "home.title": "สวัสดี ผมชื่อ",
+    "home.title.highlight": "ภูวิช ประกอบจิตร",
+    "home.subtitle": "",
     "home.tagline.code": "<Code />",
     "home.tagline.streaming": "ไลฟ์สตรีมมิ่ง",
     "home.tagline.video": "ตัดต่อวิดีโอ",
