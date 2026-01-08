@@ -9,7 +9,6 @@ import { useLanguage } from "@/hooks/useLanguage";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
-import project4 from "@/assets/project-4.jpg";
 
 const ProgrammingPortfolio = () => {
   const { t } = useLanguage();
@@ -35,35 +34,24 @@ const ProgrammingPortfolio = () => {
   const projects = [
     {
       image: project1,
-      title: "Analytics Dashboard",
-      description: "A modern data visualization dashboard with real-time charts, user analytics, and interactive reports for business intelligence.",
-      technologies: ["React", "TypeScript", "Recharts", "Tailwind CSS"],
+      title: "FindDormitoryKMITL",
+      description: "เว็บแอปพลิเคชันค้นหาและประกาศหอพักบริเวณ KMITL รองรับ 3 กลุ่มผู้ใช้: นักศึกษา (ค้นหา/กรองข้อมูล), เจ้าของหอพัก (ลงประกาศ/จัดการห้องพัก), และ Admin (อนุมัติประกาศ)",
+      technologies: ["Python", "Flask", "HTML", "JavaScript", "CSS", "PostgreSQL"],
       githubUrl: "#",
-      demoUrl: "#",
     },
     {
       image: project2,
-      title: "E-Commerce Platform",
-      description: "Full-featured online shopping platform with product catalog, cart functionality, and secure checkout process.",
-      technologies: ["React", "JavaScript", "SQL", "REST API"],
+      title: "BrainTumorProject",
+      description: "ซอฟต์แวร์ช่วยแพทย์วินิจฉัยเนื้องอกในสมองจาก CT/MRI Scan ลดเวลาการดูฟิล์มหลายแผ่น พร้อม AI Chatbot อ้างอิงข้อมูลจาก WHO",
+      technologies: ["Docker", "REST API", "React", "JavaScript", "SQL"],
       githubUrl: "#",
-      demoUrl: "#",
     },
     {
       image: project3,
-      title: "Task Management App",
-      description: "Mobile-first task organizer with drag-and-drop functionality, priority levels, and deadline reminders.",
-      technologies: ["React", "CSS", "LocalStorage", "PWA"],
+      title: "ClickRobRegistration",
+      description: "ระบบลงทะเบียนเรียนสำหรับสถาบัน ClickRobot ใช้งานจริง สำหรับผู้ปกครองกรอกข้อมูลเด็ก เก็บข้อมูลเข้า Google Sheet โดยตรง",
+      technologies: ["AppScript", "Firebase", "HTML", "CSS", "JavaScript"],
       githubUrl: "#",
-      demoUrl: "#",
-    },
-    {
-      image: project4,
-      title: "Weather Application",
-      description: "Real-time weather app featuring location detection, 7-day forecasts, and beautiful weather animations.",
-      technologies: ["JavaScript", "API", "HTML", "CSS"],
-      githubUrl: "#",
-      demoUrl: "#",
     },
   ];
 
