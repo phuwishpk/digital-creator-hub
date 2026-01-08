@@ -2,6 +2,8 @@ import { Film, Video, Radio } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MediaImageSlider from "@/components/cards/MediaImageSlider";
+import MediaSliderNoVideo from "@/components/cards/MediaSliderNoVideo";
+import MediaPlaceholderCard from "@/components/cards/MediaPlaceholderCard";
 import FloatingParticles from "@/components/FloatingParticles";
 import useScrollFadeIn from "@/hooks/useScrollFadeIn";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -26,37 +28,47 @@ const MediaPortfolio = () => {
     { image: toolCapcut, name: "CapCut" },
   ];
 
-  const mediaWorks = [
-    {
-      images: [media1, media2, media3],
-      title: "Multi-Camera Live Event",
-      description: "Professional live streaming production for corporate events with multi-camera switching, custom overlays, and real-time audio mixing.",
-      tools: ["vMix", "NDI", "Audio Mixer"],
-      category: "Live Streaming",
-      videoUrl: "#",
-    },
+  // Live Streaming - No video, just image slider
+  const liveStreamingWork = {
+    images: [media1, media2, media3],
+    title: "College Live Streaming Profession",
+    description: "ผมได้อยู่ในทีมไลฟ์สดของสถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง โดยไลฟ์สดตั้งแต่งานกีฬาสถาบันไปจนถึงงานประเพณีและพิธีต่างๆ",
+    tools: ["OBS", "vMix", "NDI"],
+    category: "Live Streaming",
+  };
+
+  // Short Film works with video links
+  const shortFilmWorks = [
     {
       images: [media2, media1, media4],
-      title: "Documentary Short Film",
-      description: "Full editing workflow including color grading, sound design, and motion graphics for a 15-minute documentary.",
-      tools: ["Premiere Pro", "DaVinci Resolve"],
-      category: "Video Editing",
+      title: "รางวัลรองชนะเลิศอันดับ 1 - การประกวดสื่อแนวคิดสร้างสรรค์ ยกระดับวันลอยกระทงท้องถิ่นจาก Local สู่เลอค่า ประจำปี 2566",
+      description: "ผมรับหน้าที่ดูแลรับผิดชอบการตัดต่อ วันที่ 27 พฤศจิกายน พ.ศ. 2566",
+      tools: ["Premiere Pro"],
+      category: "Short Film",
       videoUrl: "#",
     },
     {
       images: [media3, media4, media1],
-      title: "Brand Motion Graphics",
-      description: "Animated logo reveals, lower thirds, and transition effects for a brand identity package used across social media.",
-      tools: ["After Effects", "Illustrator"],
-      category: "Motion Graphics",
+      title: "รางวัลรองชนะเลิศลำดับที่ 2 - การประกวดหนังสั้น \"เยาวชนคนรุ่นใหม่ไร้ความรุนแรงในครอบครัว\"",
+      description: "ผมรับหน้าที่ดูแลรับผิดชอบ ภาพ เสียง และตัดต่อ วันที่ 19 ธันวาคม พ.ศ. 2566",
+      tools: ["Premiere Pro"],
+      category: "Short Film",
       videoUrl: "#",
     },
     {
       images: [media4, media3, media2],
-      title: "Social Media Content Series",
-      description: "Engaging short-form videos for TikTok and Instagram Reels with trending effects, captions, and music sync.",
-      tools: ["CapCut", "Premiere Pro"],
-      category: "Short Content",
+      title: "รางวัลชนะเลิศการประกวดภาพยนตร์สั้น \"มาลัย อยุธยา\" ภายใต้หัวข้อ ประเพณี วัฒนธรรม ภายในจังหวัดพระนครศรีอยุธยา",
+      description: "ผมรับหน้าที่ดูแลรับผิดชอบ ภาพ และเสียง วันที่ 4 ตุลาคม พ.ศ. 2566 จากสำนักงานเขตพื้นที่การศึกษาพระนครศรีอยุธยา",
+      tools: ["Premiere Pro"],
+      category: "Short Film",
+      videoUrl: "#",
+    },
+    {
+      images: [media1, media2, media3],
+      title: "รางวัลรองชนะเลิศอันดับ 1 ภาพยนตร์สั้น ในหัวข้อ \"ประชาชนในระบอบประชาธิปไตยอันมีพระมหากษัตริย์เป็นประมุข\"",
+      description: "ผมรับหน้าที่ดูแลรับผิดชอบ ภาพ เสียง และตัดต่อ วันที่ 15 กรกฎาคม พ.ศ. 2566 จากกองอำนวยการรักษาความมั่นคงภายในจังหวัด",
+      tools: ["Premiere Pro"],
+      category: "Short Film",
       videoUrl: "#",
     },
   ];
@@ -204,16 +216,44 @@ const MediaPortfolio = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {mediaWorks.map((work, index) => (
-                <div
-                  key={work.title}
-                  className="opacity-0 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.15}s`, animationFillMode: "forwards" }}
-                >
-                  <MediaImageSlider {...work} />
-                </div>
-              ))}
+            {/* Live Streaming Section */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Live Streaming</h3>
+              <div className="max-w-xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
+                <MediaSliderNoVideo {...liveStreamingWork} />
+              </div>
+            </div>
+
+            {/* Short Film Section */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Short Film</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                {shortFilmWorks.map((work, index) => (
+                  <div
+                    key={work.title}
+                    className="opacity-0 animate-fade-in"
+                    style={{ animationDelay: `${(index + 1) * 0.15}s`, animationFillMode: "forwards" }}
+                  >
+                    <MediaImageSlider {...work} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Motion Graphic Section */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Motion Graphic</h3>
+              <div className="max-w-xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
+                <MediaPlaceholderCard title="Motion Graphic" />
+              </div>
+            </div>
+
+            {/* Short Content Section */}
+            <div>
+              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Short Content</h3>
+              <div className="max-w-xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
+                <MediaPlaceholderCard title="Short Content" />
+              </div>
             </div>
           </div>
         </div>
