@@ -1,4 +1,5 @@
-import { Github } from "lucide-react";
+import { useState } from "react";
+import { Github, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ProjectCardProps {
@@ -16,6 +17,8 @@ const ProjectCard = ({
   technologies,
   githubUrl = "#",
 }: ProjectCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <div className="group relative bg-card rounded-xl overflow-hidden border border-border transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(198_93%_55%/0.15)]">
       {/* Image Container */}
@@ -48,9 +51,29 @@ const ProjectCard = ({
         <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
           {title}
         </h3>
-        <p className="text-muted-foreground text-sm line-clamp-2">
-          {description}
-        </p>
+        <div>
+          <p className={`text-muted-foreground text-sm ${isExpanded ? '' : 'line-clamp-2'}`}>
+            {description}
+          </p>
+          {description.length > 100 && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="flex items-center gap-1 mt-2 text-xs text-primary hover:text-primary/80 transition-colors"
+            >
+              {isExpanded ? (
+                <>
+                  <ChevronUp className="w-3 h-3" />
+                  ย่อ
+                </>
+              ) : (
+                <>
+                  <ChevronDown className="w-3 h-3" />
+                  เพิ่มเติม
+                </>
+              )}
+            </button>
+          )}
+        </div>
 
         {/* Technologies */}
         <div className="flex flex-wrap gap-2">
