@@ -53,6 +53,9 @@ const translations: Record<Language, Record<string, string>> = {
     "programming.additional": "Additional Knowledge",
     "programming.projects.title": "Featured Projects",
     "programming.projects.subtitle": "A selection of my programming work showcasing various technologies and problem-solving approaches",
+    "programming.project.finddorm.desc": "A web application for searching and posting dormitories near KMITL. Supports 3 user groups: students (search/filter), dorm owners (post/manage rooms), and Admin (approve posts)",
+    "programming.project.braintumor.desc": "Software to help doctors diagnose brain tumors from CT/MRI scans. Reduces time for viewing multiple films, with AI Chatbot referencing WHO data",
+    "programming.project.clickrob.desc": "Registration system for ClickRobot Institute. Used in real operations for parents to fill in children's information. Data stored directly to Google Sheet",
     
     // Media Page
     "media.badge": "Media Portfolio",
@@ -164,6 +167,9 @@ const translations: Record<Language, Record<string, string>> = {
     "programming.additional": "ความรู้เพิ่มเติม",
     "programming.projects.title": "โปรเจกต์เด่น",
     "programming.projects.subtitle": "ผลงานโปรแกรมมิ่งที่คัดสรรมาแสดงเทคโนโลยีและแนวทางแก้ปัญหาที่หลากหลาย",
+    "programming.project.finddorm.desc": "เว็บแอปพลิเคชันค้นหาและประกาศหอพักบริเวณ KMITL รองรับ 3 กลุ่มผู้ใช้: นักศึกษา (ค้นหา/กรองข้อมูล), เจ้าของหอพัก (ลงประกาศ/จัดการห้องพัก), และ Admin (อนุมัติประกาศ)",
+    "programming.project.braintumor.desc": "ซอฟต์แวร์ช่วยแพทย์วินิจฉัยเนื้องอกในสมองจาก CT/MRI Scan ลดเวลาการดูฟิล์มหลายแผ่น พร้อม AI Chatbot อ้างอิงข้อมูลจาก WHO",
+    "programming.project.clickrob.desc": "ระบบลงทะเบียนเรียนสำหรับสถาบัน ClickRobot ใช้งานจริง สำหรับผู้ปกครองกรอกข้อมูลเด็ก เก็บข้อมูลเข้า Google Sheet โดยตรง",
     
     // Media Page
     "media.badge": "ผลงาน Media",
